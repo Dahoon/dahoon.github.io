@@ -1,0 +1,6 @@
+.DS_Store
+*.pyc
+*.egg-info
+.cache
+venv/
+**/webpack/node_modules

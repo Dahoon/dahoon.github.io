@@ -1,0 +1,19 @@
+[project]
+name = homepage
+
+[alternatives.ko]
+name = Korean
+primary = yes
+locale = ko
+
+[alternatives.ja]
+name = Japanese
+url_prefix = /ja/
+locale = ja
+
+[packages]
+lektor-markdown-highlighter = 0.1
+lektor-webpack-support = 0.1
+
+[servers.ghpages]
+target = ghpages+https://dahoon/dahoon.github.io?cname=dahoon.me

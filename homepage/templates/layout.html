@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}Welcome{% endblock %} Dahoon.me</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ '/static/gen/styles.css' }}">
+    <link rel="stylesheet" href="{{ get_pygments_stylesheet()|url }}">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>
+          <a href="/">Dahoon Jung</a>
+        </h1>
+        <nav>
+          <a href="{{ '/'|url }}" {% if this._path == '/' %} class="active"{% endif %}>Home</a>
+          {% for href, title in [
+            ['/blog', 'Blog']
+          ] %}
+          <a href="{{ href|url }}" {% if this.is_child_of(href) %} class="active"{% endif %}>{{ title }}</a>
+          {% endfor %}
+          {%  if this.alt == 'ja' %}
+            <a href="{{ '.'|url(alt='ko') }}" class="lang">한국어로 읽기</a>
+          {% else %}
+            <a href="{{ '.'|url(alt='ja') }}" class="lang">日本語で読む</a>
+          {% endif %}
+        </nav>
+      </header>
+
+      <main>
+        {% block body %}{% endblock %}
+      </main>
+
+      <footer>
+        &copy; Copyright 2015 by Dahoon Jung.
+      </footer>
+    </div>
+  </body>
+</html>
